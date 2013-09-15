@@ -2,7 +2,7 @@ define(['jquery', 'backbone'], function ($, Backbone) {
     "use strict";
     
     var topNav = Backbone.View.extend({
-        el: '#navToggle',
+        el: '#topheader',
         
         
         siblings: {},
@@ -11,23 +11,38 @@ define(['jquery', 'backbone'], function ($, Backbone) {
         initialize: function (opts) {
             this.siblings.left = opts.leftPanel;
             this.siblings.right = opts.rightPanel;
+            this.siblings.content = opts.content;
         },
         
         
         events: {
-            'click': 'toggleContent'
+            'click #navToggle': 'toggleContent'
         },
         
         
         toggleContent: function() {
-            if ($('.content').hasClass('open')) {
-                this.siblings.left.close();
-                this.siblings.right.close();
+            if (this.siblings.content.$el.hasClass('open')) {
+                this.close();
             }
             else {
-                this.siblings.left.open();
-                this.siblings.right.open();              
+                this.open();            
             }
+        },
+        
+        
+        open: function() {
+            this.$el.removeClass('close').addClass('open');
+            this.siblings.left.open();
+            this.siblings.right.open(); 
+            this.siblings.content.open(); 
+        },
+        
+    
+        close: function() { 
+            this.$el.removeClass('open').addClass('close');
+            this.siblings.left.close();
+            this.siblings.right.close();
+            this.siblings.content.close();
         }
     });
   

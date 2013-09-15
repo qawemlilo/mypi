@@ -2,15 +2,14 @@ define(['jquery', 'backbone'], function ($, Backbone) {
     "use strict";
     
     var Content = Backbone.View.extend({
-        el: '.content',
+        el: '#content',
         
         
         siblings: {},
         
         
         initialize: function (opts) {
-            this.siblings.left = opts.leftPanel;
-            this.siblings.right = opts.rightPanel;
+            this.siblings.nav = opts.nav;
         },
         
         
@@ -21,9 +20,18 @@ define(['jquery', 'backbone'], function ($, Backbone) {
         
         toggleContent: function() {
             if (this.$el.hasClass('open')) {
-                this.siblings.left.close();
-                this.siblings.right.close();
+                this.siblings.nav.close();
             }
+        },
+        
+        
+        open: function() {
+            this.$el.removeClass('close').addClass('open');
+        },
+        
+    
+        close: function() { 
+            this.$el.removeClass('open').addClass('close');
         }
     });
   

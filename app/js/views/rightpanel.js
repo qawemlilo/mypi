@@ -2,7 +2,7 @@ define(['jquery', 'backbone'], function ($, Backbone) {
     "use strict";
     
     var rightPanel = Backbone.View.extend({
-        el: '.slideRight',
+        el: '#slideRight',
         
         open: function() {
             this.$el.removeClass('close').addClass('open');

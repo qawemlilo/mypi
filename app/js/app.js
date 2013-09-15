@@ -24,13 +24,13 @@ function (leftPanel, rightPanel, Body, Content, topNav) {
         App.views.Body = new Body();
          
         App.views.Content = new Content({
-            leftPanel:  App.views.leftPanel,
-            rightPanel: App.views.rightPanel
+            nav: App.views.topNav
         });
      
         App.views.topNav = new topNav({
             leftPanel:  App.views.leftPanel,
-            rightPanel: App.views.rightPanel
+            rightPanel: App.views.rightPanel,
+            content: App.views.Content
         });
     };
 
