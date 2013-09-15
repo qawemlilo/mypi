@@ -7,7 +7,9 @@ var connect = require('connect'),
     app;
 
 
-app = connect().use(connect.static('app'));
+app = connect()
+        .use(connect.static('app'))
+        .use('/build', connect.static('dist'));
 
 
 var port = process.env.PORT || 8080;

@@ -5,7 +5,8 @@ requirejs.config({
    
     paths: {
         jquery : "libs/jquery",
-        trunk : "libs/trunk"
+        backbone: "libs/backbone",
+        underscore: 'libs/underscore-min'
     },
     
     shim: {
@@ -13,18 +14,14 @@ requirejs.config({
             exports: '$'
         },
         
-        trunk: {
-            deps: ['jquery']
-        }
-        
-        app: {
-            deps: ['jquery', 'trunk'],
-            exports: 'app'
+        backbone: {
+            deps: ['jquery', 'underscore'],
+            exports: 'Backbone'
         }
     }
 });
 
-require(["jquery", "app", "trunk"], function($, App) {  
+require(["jquery", "app"], function($, App) {  
     $(function() {
         App.init();
     });
