@@ -25,6 +25,7 @@
     "requirejs": "~2.1.8",
     "grunt": "~0.4.1",
     "grunt-exec": "~0.4.2",
-    "connect": "~2.9.0"
+    "connect": "~2.9.0",
+    "socket.io": "~0.9.16"
   }
 }

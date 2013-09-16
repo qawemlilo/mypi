@@ -1,8 +1,8 @@
 define(['backbone'], function (Backbone) {
     "use strict";
     
-    var Body = Backbone.View.extend({
-        el: '#content',
+    var Menu = Backbone.View.extend({
+        el: '#body-menu',
         
         
         open: function() {
@@ -15,5 +15,5 @@ define(['backbone'], function (Backbone) {
         }
     });
   
-    return Body;
+    return Panel;
 })

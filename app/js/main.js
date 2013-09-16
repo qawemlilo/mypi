@@ -5,8 +5,9 @@ requirejs.config({
    
     paths: {
         jquery : "libs/jquery",
+        underscore: 'libs/underscore-min',
         backbone: "libs/backbone",
-        underscore: 'libs/underscore-min'
+        io: "http://localhost:8080/socket.io/socket.io"
     },
     
     shim: {
@@ -15,7 +16,7 @@ requirejs.config({
         },
         
         backbone: {
-            deps: ['jquery', 'underscore'],
+            deps: ['underscore','jquery'],
             exports: 'Backbone'
         }
     }
@@ -23,6 +24,9 @@ requirejs.config({
 
 require(["jquery", "app"], function($, App) {  
     $(function() {
-        App.init();
+        "use strict";
+        
+        App = new App();
+        App.socketConnect();
     });
 });

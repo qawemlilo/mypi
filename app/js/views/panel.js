@@ -1,17 +1,19 @@
-define(['jquery', 'backbone'], function ($, Backbone) {
+define(['backbone'], function (Backbone) {
     "use strict";
     
-    var rightPanel = Backbone.View.extend({
-        el: '#slideRight',
+    var Panel = Backbone.View.extend({
+        el: '#sidePanel',
+        
         
         open: function() {
             this.$el.removeClass('close').addClass('open');
         },
+        
     
         close: function() { 
             this.$el.removeClass('open').addClass('close');
         }
     });
   
-    return rightPanel;
+    return Panel;
 })
